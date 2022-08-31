@@ -37,4 +37,12 @@ public class UserController {
         request.getSession().setAttribute("user",user1.getId());
         return R.success(user1);
     }
+
+
+    @PostMapping("/logout")
+    public R<String> logout(HttpServletRequest request){
+        //清除Session中保存的id
+        request.getSession().removeAttribute("user");
+        return R.success("退出成功");
+    }
 }
