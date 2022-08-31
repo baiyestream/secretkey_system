@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- 上面这类标签不用改，除非特别地指定要用什么引用的标准 -->
+		<title>唐彩密钥系统-登录</title>
+		<!-- 尽量保持格式化地给页面起名的习惯 -->
+		<link rel="stylesheet" href="css/sample.css">
+		<!-- 使用link标签链接外部css，尽量保持html、css和js代码的分离 -->
+		<script src="https://unpkg.com/vue@next"></script>
+		<!-- <script src="js/v3.2.8/vue.global.prod.js" type="text/javascript" charset="utf-8"></script> -->
+		<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+		<script src="js/LoginApi.js/"></script>
+	</head>
+	<body>
+		<div id="login-main">
+			<div class="login-item" id="login-content-left">
+				<img src="img/login.png" alt id="login-img-left">
+			</div>
+			<div class="login-item" id="login-content-right">
+				<div id="login-input-div">
+					<div id="login-title">
+						登录
+					</div>
+					<div class="login-label">
+						用户名
+					</div>
+					<div class="login-input" >
+						<input type="text" id="login-input-username" v-model="LoginForm.username">
+					</div>
+					<div class="login-label">
+						密码
+					</div>
+					<div class="login-input">
+						<input type="password" id="login-input-password" v-model="LoginForm.password">
+					</div>
+					<div id="login-confirm-button">
+						<input type="button" value="登录" @click="LogIn"/>
+					</div>
+					<div id="login-input-bottom">
+						<input type="checkbox" id="login-info-save"><label for="login-info-save">保存用户名和密码</label>
+					</div>
+				</div>
+			</div>
+		</div>
+<script>
+	LoginApp.mount('#login-input-div')
+</script>
+	</body>
+</html>
