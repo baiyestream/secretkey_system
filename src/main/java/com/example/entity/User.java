@@ -7,9 +7,8 @@ import lombok.Data;
  */
 @Data
 public class User {
+
     private static final long serialVersionUID = 1L;
-    // 主键id
-    private Long id;
     // 昵称
     private String nickname;
     // ID
