@@ -28,11 +28,12 @@ const LoginApp = Vue.createApp({
                         console.log("jurisdiction: " + window.sessionStorage.getItem("jurisdiction"));
                         // window.location.replace("/backend/test.html");
                         window.alert("调试信息：登陆成功！点击跳转到主页");
-                        window.location.replace("/backend/main.html");
+                        // window.location.replace("/backend/main.html");
+                        window.location.replace("/backend/main_test.html");
                     }else{
                         console.log("login failed,code:" + res.data.code);
                         window.alert("登陆失败！");
-                        window.location.replace("/backend/login_sample.html");
+                        window.location.replace("/backend/login.html");
                     }
                 })
         }
