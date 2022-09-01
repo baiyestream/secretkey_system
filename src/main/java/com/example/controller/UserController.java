@@ -33,7 +33,7 @@ public class UserController {
             return R.error("登录失败");
         }
 
-        request.getSession().setAttribute("user",user1.getId());
+        request.getSession().setAttribute("user",user1.getNickname());
         return R.success(user1);
     }
 
@@ -46,7 +46,7 @@ public class UserController {
     }
 
     /**
-     * 用户管理模块信息查询
+     * 用户管理模块信息查询：分页查询
      * @param current 分页
      * @param size  分页条数
      * @param accountid  用户账号id
