@@ -33,7 +33,7 @@ public class UserController {
             return R.error("登录失败");
         }
 
-        request.getSession().setAttribute("user",user1.getNickname());
+        request.getSession().setAttribute("user",user1.getAccountid());
         return R.success(user1);
     }
 
