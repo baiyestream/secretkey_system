@@ -1,59 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>秘钥激活码后台管理系统</title>
- <link rel="stylesheet" href="css/style.css">
- <link rel="stylesheet" href="css/style1.css">
-<style>
-
-</style>
-</head>
-<body> 
-<div class="body">
-<div class="felx-center body">
-    <div class="content">
-        <div class="pic flex-center">
-         <img src="img/login.png" alt style="width: 389px; height: 277.32px">
-        </div>
-        <div class="content-login">
-          <div style="margin-top: 64px; margin-left: 116px">
-            <div class="login-text">登录</div>
-            <form class="a-form"> 
-              <div class="login-textTwo" style="margin-top: 32px;">用户名:</div>
-              <div class="a-form-item is-error is-required"> 
-			   <div class="a-form-item__content" >
-				 <div class="a-input a-input--suffix">
-			       <input type="text" autocomplete="off" class="a-input__inner" style="margin-right: 40px;">
-                 </div>
-               </div> 
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- 上面这类标签不用改，除非特别地指定要用什么引用的标准 -->
+		<title>唐彩密钥系统-登录</title>
+		<!-- 尽量保持格式化地给页面起名的习惯 -->
+		<link rel="stylesheet" href="css/login.css">
+		<!-- 使用link标签链接外部css，尽量保持html、css和js代码的分离 -->
+		<script src="https://unpkg.com/vue@next"></script>
+		<!-- <script src="js/v3.2.8/vue.global.prod.js" type="text/javascript" charset="utf-8"></script> -->
+		<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+		<script src="js/LogInApi.js/"></script>
+	</head>
+	<body>
+		<div id="login-main">
+			<div class="login-item" id="login-content-left">
+				<img src="img/login.png" alt id="login-img-left">
 			</div>
-		    <div class="login-textTwo" style="margin-top: 20px;">密码: </div>
-			<div class="a-form-item is-required">
-              <div class="a-formitem__content" >
-                <div class="a-input a-input--suffix">
-					<input type="password" autocomplete="off" class="a-input__inner">
-					
-                </div>
-              </div>
-			  <div class="error">
-				  <span style="display: none;"></span>
-			  </div>
-			  <div class="login-button flex-center" style="margin-top: 40px;">
-               <span class="login-textThree">登录</span>
-              </div> 
-			</form>
-		<div class="flex-between" style="margin-top: 19px; width: 380px">
-			<div class="flex-center" style="cursor: pointer;">
-				<input type="checkbox" id="saveUser"/>
-				    <div class="textFour" style="margin-right: 240px;"><label for="saveUser">记住用户名和密码</label></div>
-            </div>
-        </div>
-     </div>
-   </div>
-</div>       
-       </div>
-</body>
+			<div class="login-item" id="login-content-right">
+				<div id="login-input-div">
+					<div id="login-title">
+						登录
+					</div>
+					<div class="login-label">
+						用户名
+					</div>
+					<div class="login-input" >
+						<input type="text" id="login-input-username" v-model="LoginForm.username">
+					</div>
+					<div class="login-label">
+						密码
+					</div>
+					<div class="login-input">
+						<input type="password" id="login-input-password" v-model="LoginForm.password">
+					</div>
+					<div id="login-confirm-button">
+						<input type="button" value="登录" @click="LogIn"/>
+					</div>
+					<div id="login-input-bottom">
+						<input type="checkbox" id="login-info-save"><label for="login-info-save">保存用户名和密码</label>
+					</div>
+				</div>
+			</div>
+		</div>
+<script>
+	LoginApp.mount('#login-input-div')
+</script>
+	</body>
 </html>

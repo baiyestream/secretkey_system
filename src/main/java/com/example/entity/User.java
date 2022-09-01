@@ -16,4 +16,8 @@ public class User {
     private String password;
 
     private Integer jurisdiction;
+
+    private Integer status;
+
+    private String accountid;
 }
