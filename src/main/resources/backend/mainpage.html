@@ -2,62 +2,82 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title></title>
-		<style>
-			.nav-left{
-						width: 220px;
-						 height: 100vh;
-						 min-height: 925px;
-						 background-color: #333943;
-			}
-			
-		</style>
+		<title>秘钥激活码后台管理系统</title>
+		<link rel="stylesheet" href="css/mainpage.css">
 	</head>
 	<body style="margin: 0px;">
-	<div class="body">
-			  <div>
+		<div class="body">
+			<div>
 				<div style="display: flex; width: 100%;">
-				  <div class="nav-left">
-					  <div style="width: 220px; height: 88px;">
-						  <div style="display: flex; margin-left: 12px; margin-top:24px;">
-							  <div style="margin-right: 22px;">
-								  <img src="img/R-C.jpg" alt style="width: 40px; height: 40px; border-radius: 50px;">
-		                      </div>
-							  <div>
-								  <div style="font-size: 16px; color: rgb(255,255,255);">Root</div>
-								  <div style="font-size: 14px; color: rgb(255,255,255);">超级管理员</div>
-							  </div>
-						  </div>
-					  </div>
-			<a href="mainpage.html" class="nav-button" style="display: flex; line-height: 48px; align-items: center; margin-top:0px; margin-left: 12px;">
-			<img src="img/1.png" alt style="width:20px; height: 20px; margin-left: 20px; margin-right:12px;">
-			<span style="font-size: 14px;">首页</span>
-			</a>
-			<a href="fileAdmin.html" class="nav-button" style="display: flex; line-height: 48px; align-items: center; margin-left: 12px;">
-			<img src="img/2.png" alt style="width:20px; height: 20px; margin-left: 20px; margin-right:12px;">
-			<span style="font-size: 14px;">应用文件管理</span>
-			</a>
-			<a href="imeicode.html" class="nav-button" style="display: flex; line-height: 48px; align-items: center; margin-left: 12px;">
-			<img src="img/3.png" alt style="width:20px; height: 20px; margin-left: 20px; margin-right:12px;">
-			<span style="font-size: 14px;">IMEI导入激活码生成</span>
-			</a>
-			<a href="messagesearch.html" class="nav-button" style="display: flex; line-height: 48px; align-items: center; margin-left: 12px;">
-			<img src="img/4.png" alt style="width:20px; height: 20px; margin-left: 20px; margin-right:12px;">
-			<span style="font-size: 14px;">激活信息查询</span>
-			</a>
-			<a href="userpage.html" class="nav-button" style="display: flex; line-height: 48px; align-items: center; margin-left: 12px;">
-			<img src="img/5.png" alt style="width:20px; height: 20px; margin-left: 20px; margin-right:12px;">
-			<span style="font-size: 14px;">用户信息</span>
-			</a>
-			<a href="adminpage.html" class="nav-button" style="display: flex; line-height: 48px; align-items: center; margin-left: 12px;">
-			<img src="img/5.png" alt style="width:20px; height: 20px; margin-left: 20px; margin-right:12px;">
-			<span style="font-size: 14px;">用户管理</span>
-			</a>
-				  </div>
-			
-	<div>
-				
-				
-	</div>
+					<div class="nav-left">
+						<div style="width: 220px; height: 88px;">
+							<div style="display: flex; margin-left: 12px; margin-top:24px;">
+								<div style="margin-right: 22px;">
+									<img src="img/R-C.jpg" alt style="width: 40px; height: 40px; border-radius: 50px;">
+								</div>
+								<div>
+									<div style="font-size: 16px; color: rgb(255,255,255);">Root</div>
+									<div style="font-size: 14px; color: rgb(255,255,255);">超级管理员</div>
+								</div>
+							</div>
+						</div>
+						<a href="mainpage.html" class="nav-button nav-active">
+							<img src="img/1.png" alt
+								style="width:20px; height: 20px; margin-left: 20px; margin-right:12px;">
+							<span style="font-size: 14px;">首页</span>
+						</a>
+						<a href="fileAdmin.html" class="nav-button">
+							<img src="img/2.png" alt
+								style="width:20px; height: 20px; margin-left: 20px; margin-right:12px;">
+							<span style="font-size: 14px;">应用文件管理</span>
+						</a>
+						<a href="imeicode.html" class="nav-button">
+							<img src="img/3.png" alt
+								style="width:20px; height: 20px; margin-left: 20px; margin-right:12px;">
+							<span style="font-size: 14px;">IMEI导入激活码生成</span>
+						</a>
+						<a href="messagesearch.html" class="nav-button">
+							<img src="img/4.png" alt
+								style="width:20px; height: 20px; margin-left: 20px; margin-right:12px;">
+							<span style="font-size: 14px;">激活信息查询</span>
+						</a>
+						<a href="userpage.html" class="nav-button">
+							<img src="img/5.png" alt
+								style="width:20px; height: 20px; margin-left: 20px; margin-right:12px;">
+							<span style="font-size: 14px;">用户信息</span>
+						</a>
+						<a href="adminpage.html" class="nav-button">
+							<img src="img/5.png" alt
+								style="width:20px; height: 20px; margin-left: 20px; margin-right:12px;">
+							<span style="font-size: 14px;">用户管理</span>
+						</a>
+					</div>
+
+					<div style="position: relative; background-color: #f7f7f7;">
+						<header>
+							<a href="loginpage"><button class="flex-center">退出登录</button></a>
+						</header>
+					<div style="width: calc(100vw - 256px); margin: 18px auto 0px; background-color: rgb(255, 255, 255);" >
+						<div style="width: calc(100% - 220px);">
+							<div class="body">
+								<div class="content-top">
+									<div class="content-text">欢迎使用秘钥激活码后台管</div>
+								</div>
+								<div>
+								</div>
+								<div class="content">
+									<div class="con-text">1、本系统可以针对客户所需要的APP应用进行文件的上传、下载、激活码文件生成、导出、激活状态查询以及用户管理，详见下方各功能模块描述；</div>
+									<div class="con-text">2、APP文件管理：该模块单个或多个APP文件应用的上传、下载、删除。以便于所有APP应用的统一管理。（注：APP应用的上传以及删除功能目前只针对于管理员权限开放，客户只能使用APP下载权限）</div>
+									<div class="con-text">3、IMEI文件导入、激活码导出：该功能模块主要针对管理员和客户进行IMEI号码导入并生成相对应的秘钥激活码进行导出并实现APP的激活使用；</div>
+									<div class="con-text">4、激活信息查询：该模块功能主要针对管理员和客户对单个应用或者所有应用的激活以及未激活状态进行查询；</div>
+									<div class="con-text">5、用户管理：该模块主要功能针对管理员和客户账号，密码，账户状态，信息编辑，添加用户，查询，设置；（注：此功能目前只针对管理员权限开放，普通权限用户只能进行密码修改服务）</div>
+								</div>
+							</div>
+						</div>
+						<div><a href="https://beian.miit.gov.cn">备案号</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
