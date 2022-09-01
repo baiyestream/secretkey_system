@@ -1,14 +1,13 @@
 package com.example.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.common.R;
 import com.example.entity.User;
 import com.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
@@ -45,4 +44,39 @@ public class UserController {
         request.getSession().removeAttribute("user");
         return R.success("退出成功");
     }
+
+    /**
+     * 用户管理模块信息查询
+     * @param current 分页
+     * @param size  分页条数
+     * @param accountid  用户账号id
+     * @return
+     */
+    @GetMapping("/search")
+    public R<Page> search(int current,int size,int accountid){
+
+        Page pageInfo = new Page(current,size);
+
+        LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper();
+        // 根据id查询
+        queryWrapper.eq(User::getAccountid,accountid);
+        queryWrapper.orderByAsc(User::getAccountid);
+
+        userService.page(pageInfo,queryWrapper);
+
+        return R.success(pageInfo);
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
