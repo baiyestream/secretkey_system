@@ -22,14 +22,13 @@ const LoginApp = Vue.createApp({
                         window.sessionStorage.setItem("jurisdiction",res.data.data.jurisdiction);
                         window.sessionStorage.setItem("username",res.data.data.username);
                         window.sessionStorage.setItem("password",res.data.data.password);
-                        window.sessionStorage.setItem("id",res.data.data.id);
+                        window.sessionStorage.setItem("nickname",res.data.data.nickname);
                         window.sessionStorage.setItem("accountid",res.data.data.accountid);
                         window.sessionStorage.setItem("status",res.data.data.status);
                         console.log("jurisdiction: " + window.sessionStorage.getItem("jurisdiction"));
-                        // window.location.replace("/backend/test.html");
                         window.alert("调试信息：登陆成功！点击跳转到主页");
-                        // window.location.replace("/backend/main.html");
-                        window.location.replace("/backend/main_test.html");
+                        window.location.replace("/backend/mainpage.html");
+                        // window.location.replace("/backend/main_test.html");
                     }else{
                         console.log("login failed,code:" + res.data.code);
                         window.alert("登陆失败！");
