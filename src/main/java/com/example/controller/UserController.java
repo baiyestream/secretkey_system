@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/user")
@@ -65,6 +66,25 @@ public class UserController {
         userService.page(pageInfo,queryWrapper);
 
         return R.success(pageInfo);
+    }
+
+    /**
+     * 用户信息模块
+     * @param request
+     * @param user
+     * @return
+     */
+    @GetMapping("/info")
+    public String info(HttpServletRequest request, @RequestBody User user){
+
+        HttpSession session = request.getSession();
+        session.setAttribute("username",user.getUsername());
+        session.setAttribute("password",user.getPassword());
+        session.setAttribute("account",user.getAccountid());
+        session.setAttribute("status",user.getStatus());
+        session.setAttribute("jurisdiction",user.getJurisdiction());
+
+        return "/info";
     }
 
 
