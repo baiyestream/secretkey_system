@@ -7,11 +7,11 @@ import java.util.Date;
  * 激活信息实体类
  */
 @Data
-public class activation_information {
+public class Activate_information {
 
     private static final long serialVersionUID = 1L;
 
-    //  主键ID
+    //  主键ID,前端展示把ID隐藏
     private Long id;
     //  客户名称
     private String nickname;
