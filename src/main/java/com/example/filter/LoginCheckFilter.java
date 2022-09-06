@@ -33,7 +33,8 @@ public class LoginCheckFilter implements Filter {
                 "/user/login",
                 "/user/logout",
                 "/backend/**",
-                "/front/**"
+                "/front/**",
+                "/common/**"
         };
         // 判断本次请求是否需要处理
         boolean check = check(urls,requestURI);
@@ -58,7 +59,7 @@ public class LoginCheckFilter implements Filter {
      * 路径匹配，检查本次请求是否需要放行
      * @param urls
      * @param requsetURI
-     * @return
+     * @return true or false
      */
     public boolean check(String[] urls,String requsetURI){
         for(String url:urls){
@@ -69,4 +70,6 @@ public class LoginCheckFilter implements Filter {
         }
         return false;
     }
+
+
 }
