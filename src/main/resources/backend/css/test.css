@@ -1,0 +1,30 @@
+.test-unit{
+	background-color: bisque;
+	width: auto;
+	margin-bottom: 5px;
+}
+.option{
+	background-color: lightgray;
+	border-radius: 5px;
+	display: inline block;
+}
+.option-button{
+	margin: 5px;
+	width: 90px;
+	padding: 0px;
+	font-size: 24;
+}
+.result{
+	width: auto;
+	height: 100%;
+	border-radius: 5px;
+	background-color: lightsteelblue;
+	padding: 2px;
+	display: inline block;
+	margin-bottom: 5px;
+	/* float: left; */
+}
+.table-cell{
+	width: 70px;
+	text-align: center;
+}
