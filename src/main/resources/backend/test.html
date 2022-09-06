@@ -1,73 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-	<script src="js/vue.global.prod.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-	<script src="js/user_login.js"></script>
-	<script src="js/user_logout.js"></script>
-	<script src="js/user_search.js"></script>
-	<link rel="stylesheet" href="css/test.css">
-    <title>Title</title>
-</head>
-<body>
-	<div class="test-unit" id="test-log">
-		<div class="option">
-			<button @click="LogIn"  class="option-button">测试登入</button>
+	<head>
+		<meta charset="UTF-8">
+		<script src="js/vue.global.prod.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+		<script src="js/user_login.js"></script>
+		<script src="js/user_logout.js"></script>
+		<script src="js/user_search.js"></script>
+		<link rel="stylesheet" href="css/test.css">
+		<title>Title</title>
+	</head>
+	<body>
+		<div class="test-unit" id="test-log">
+			<div class="option">
+				<button @click="LogIn" class="option-button">测试登入</button>
 
-			
+
+			</div>
+			<div class="result">
+				用户名<input type="text" v-model="LoginForm.username">密码<input type="text"
+					v-model="LoginForm.password"><br />
+				{{info}}
+			</div>
 		</div>
-		<div class="result">
-			用户名<input type="text" v-model="LoginForm.username">密码<input type="text" v-model="LoginForm.password"><br />
-			{{info}}
+		<div class="test-unit" id="test-log-out">
+			<button @click="LogOut" class="option-button">测试登出</button>
 		</div>
-	</div>
-	<div class="test-unit" id="test-log-out">
-		<button @click="LogOut"  class="option-button">测试登出</button>
-	</div>
-	<div class="test-unit" id="test-userSearch">
-		<div class="option">
-			<button @click="UserSearch" class="option-button">查询用户</button>
+		<div class="test-unit" id="test-userSearch">
+			<div class="option">
+				<button @click="UserSearch" class="option-button">查询用户</button>
+			</div>
+			<div class="result">
+				页数<input type="text" v-model="userSearchForm.current">
+				每页显示条数<input type="text" v-model="userSearchForm.size">
+				用户id<input type="text" v-model="userSearchForm.accountid"><br />
+				<table>
+					<tr>
+						<th>
+							<div class="table-cell">
+								昵称
+							</div>
+						</th>
+						<th>
+							<div class="table-cell">
+								账号
+							</div>
+						</th>
+						<th>
+							<div class="table-cell">
+								密码
+							</div>
+						</th>
+						<th>
+							<div class="table-cell">
+								权限
+							</div>
+						</th>
+						<th>
+							<div class="table-cell">
+								激活状态
+							</div>
+						</th>
+					</tr>
+					<tr v-for="item in userlist">
+						<td>
+							<div class="table-cell">
+								{{item.nickname}}
+							</div>
+						</td>
+						<td>
+							<div class="table-cell">
+								{{item.username}}
+							</div>
+						</td>
+						<td>
+							<div class="table-cell">
+								{{item.password}}
+							</div>
+						</td>
+						<td>
+							<div class="table-cell">
+								{{item.jurisdiction}}
+							</div>
+						</td>
+						<td>
+							<div class="table-cell">
+								{{item.status}}
+							</div>
+						</td>
+					</tr>
+				</table>
+			</div>
 		</div>
-		<div class="result">
-			页数<input type="text" v-model="userSearchForm.current">
-			每页显示条数<input type="text" v-model="userSearchForm.size">
-			用户id<input type="text" v-model="userSearchForm.accountid"><br />
-			<table >
-				<tr>
-					<th >昵称</th>
-					<th >账号</th>
-					<th >密码</th>
-					<th >权限</th>
-					<th >激活状态</th>
-				</tr>
-				<tr v-for="item in userlist" >
-					<td>
-						{{item.nickname}}
-					</td>
-					<td>
-						{{item.username}}
-					</td>
-					<td>
-						{{item.password}}
-					</td>
-					<td>
-						{{item.jurisdiction}}
-					</td>
-					<td>
-						{{item.status}}
-					</td>
-				</tr>
-			</table>
+		<div class="test-unit">
+
 		</div>
-	</div>
-	<div class="test-unit">
-		
-	</div>
-	<script>
-		userLoginApp.mount('#test-log')
-		userLogoutApp.mount('#test-log-out')
-		userSearchApp.mount('#test-userSearch')
-	</script>
-</body>
+		<script>
+			userLoginApp.mount('#test-log')
+			userLogoutApp.mount('#test-log-out')
+			userSearchApp.mount('#test-userSearch')
+		</script>
+	</body>
 </html>

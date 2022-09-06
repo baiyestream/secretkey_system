@@ -1,6 +1,7 @@
 .test-unit{
 	background-color: bisque;
 	width: auto;
+	margin-bottom: 5px;
 }
 .option{
 	background-color: lightgray;
@@ -22,4 +23,8 @@
 	display: inline block;
 	margin-bottom: 5px;
 	/* float: left; */
+}
+.table-cell{
+	width: 70px;
+	text-align: center;
 }
