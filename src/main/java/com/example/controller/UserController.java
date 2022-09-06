@@ -53,14 +53,17 @@ public class UserController {
      * @return
      */
     @GetMapping("/search")
-    public R<Page> search(int current,int size,int accountid){
+    public R<Page> search(int current,int size,Integer accountid){
 
         Page pageInfo = new Page(current,size);
 
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper();
+
         // 根据id查询
-        queryWrapper.eq(User::getAccountid,accountid);
-        queryWrapper.orderByAsc(User::getAccountid);
+        if(accountid != null){
+            queryWrapper.eq(User::getAccountid,accountid);
+            queryWrapper.orderByAsc(User::getAccountid);
+        }
 
         userService.page(pageInfo,queryWrapper);
 
