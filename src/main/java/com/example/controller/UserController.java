@@ -80,17 +80,12 @@ public class UserController {
      * @return
      */
     @GetMapping("/list")
-    public List<User> list(@RequestBody User user){
+    public R<List> list(User user){
 
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper();
-        queryWrapper.eq(User::getNickname,user);
+        List<User> list = userService.list(queryWrapper);
+        return R.success(list);
 
-        return userService.list(queryWrapper);
-
-        /**
-        List list = userService.list(queryWrapper);
-        return list;
-         */
     }
 
     /**
@@ -110,6 +105,16 @@ public class UserController {
         session.setAttribute("jurisdiction",user.getJurisdiction());
 
         return "/info";
+    }
+
+    /**
+     * 新增用户
+     */
+    @PostMapping("/add")
+    public R<String> add(@RequestBody User user){
+
+        userService.save(user);
+        return R.success("新增用户成功");
     }
 
 
