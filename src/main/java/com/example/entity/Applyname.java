@@ -6,7 +6,7 @@ import lombok.Data;
 public class Applyname {
 
     //  应用名称ID
-    private Integer applynameID;
+    private int applynameid;
     //  应用名称
     private String applyname;
 }

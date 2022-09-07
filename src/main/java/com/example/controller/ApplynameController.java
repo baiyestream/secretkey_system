@@ -36,7 +36,7 @@ public class ApplynameController {
     @GetMapping("/list1")
     public R<List> list(Applyname applyname){
         LambdaQueryWrapper<Applyname> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(Applyname::getApplyname,applyname.getApplyname());
+//        queryWrapper.eq(Applyname::getApplyname,applyname.getApplyname());
         List<Applyname> list = applynameService.list(queryWrapper);
         return R.success(list);
     }
@@ -44,7 +44,7 @@ public class ApplynameController {
     @GetMapping("/list2")
     public R<List> list(String applyname){
         LambdaQueryWrapper<Applyname> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.eq(Applyname::getApplyname,applyname);
+//        queryWrapper.eq(Applyname::getApplyname,applyname);
         List<Applyname> list = applynameService.list(queryWrapper);
         return R.success(list);
     }

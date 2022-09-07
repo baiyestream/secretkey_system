@@ -7,6 +7,7 @@
 		<script src="js/user_login.js"></script>
 		<script src="js/user_logout.js"></script>
 		<script src="js/user_search.js"></script>
+		<script src="js/applyname.js"></script>
 		<link rel="stylesheet" href="css/test.css">
 		<title>Title</title>
 	</head>
@@ -92,13 +93,37 @@
 				</table>
 			</div>
 		</div>
-		<div class="test-unit">
-
+		<div class="test-unit" >
+			<div class="result">
+				<div id="test-applyname" style="display: inline;">
+					应用名
+					<select @click="applynameSearch">
+">
+						<template v-for="item in applynameList">
+							<option>
+								{{item.applyname}}
+							</option>
+						</template>
+					</select>
+				</div>
+				<div id="test-platform" style="display: inline;">
+					应用名
+					<select @click="platformSearch">
+">
+						<template v-for="item in platformList">
+							<option>
+								{{item.appplatform}}
+							</option>
+						</template>
+					</select>
+				</div>
+			</div>
 		</div>
 		<script>
 			userLoginApp.mount('#test-log')
 			userLogoutApp.mount('#test-log-out')
 			userSearchApp.mount('#test-userSearch')
+			applynameApp.mount('#test-applyname')
 		</script>
 	</body>
 </html>

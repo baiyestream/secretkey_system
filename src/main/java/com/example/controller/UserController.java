@@ -63,7 +63,7 @@ public class UserController {
 
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper();
         // 根据id查询
-       if(accountid == null){
+       if(accountid != null){
            queryWrapper.eq(User::getAccountid,accountid);
 
            queryWrapper.orderByAsc(User::getAccountid);
