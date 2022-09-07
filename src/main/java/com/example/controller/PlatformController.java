@@ -2,6 +2,7 @@ package com.example.controller;
 
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.example.common.R;
 import com.example.entity.Platform;
 import com.example.service.PlatformService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,12 +23,12 @@ public class PlatformController {
     /**
      * 激活信息-应用平台接口
      */
-    @GetMapping("/list")
-    public List<Platform> list(@RequestBody Platform platform){
-        LambdaQueryWrapper<Platform> queryWrapper = new LambdaQueryWrapper();
-        queryWrapper.eq(Platform::getAppplatform,platform);
 
-        return platformService.list(queryWrapper);
+    @GetMapping("/list")
+    public R<List> list(Platform platform){
+        LambdaQueryWrapper<Platform> queryWrapper = new LambdaQueryWrapper<>();
+        List<Platform> list = platformService.list(queryWrapper);
+        return R.success(list);
     }
 
 }
