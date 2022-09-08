@@ -28,12 +28,12 @@ public class KeyController {
      * @param size  分页条数
      * @param accountid   用户账号ID
      * @param applynameid   应用名称ID
-     * @param appplatformID   应用平台ID
+     * @param appplatformid   应用平台ID
      * @param status    激活状态
      * @return
      */
     @GetMapping("/search")
-    public R<Page> search(int current,int size,int accountid,int applynameid,int appplatformID,int status){
+    public R<Page> search(int current,int size,int accountid,int applynameid,int appplatformid,int status){
         Page pageInfo = new Page(current,size);
 
         LambdaQueryWrapper<Activate_information>  queryWrapper = new LambdaQueryWrapper();
@@ -44,7 +44,7 @@ public class KeyController {
         // 条件查询-> 用户ID
         queryWrapper1.eq(User::getAccountid,accountid);
         // 条件查询-> 应用平台ID
-        queryWrapper2.eq(Platform::getAppplatformID,appplatformID);
+        queryWrapper2.eq(Platform::getAppplatformid,appplatformid);
         // 条件查询-> 应用名称ID
         queryWrapper3.eq(Applyname::getApplynameid,applynameid);
         // 条件查询-> status

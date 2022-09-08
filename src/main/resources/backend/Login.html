@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>唐彩密钥系统-登录</title>
+		<link rel="stylesheet" href="css/login.css">
+		<script src="js/vue.global.prod.js"></script>
+		<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+		<script src="js/user_login.js"></script>
+	</head>
+	<body>
+		<!-- 因为登陆页面与其他页面都不同，所以该页面的指示器基本使用id，并单链接一个外部css -->
+		<div id="login-main">
+			<div id="left-content">
+				<img src="img/login.png" alt id="login-img">	
+			</div>
+			<div id="right-content">
+				<div id="login-title">
+					登录
+				</div>
+				<div id="login-input">
+					<div class="input-label" style="margin-top: 32px;">
+						用户名:<div class="caution" v-show="usernameCaution" >用户名不能为空！</div>
+					</div>
+					<!-- 下面这个input可以外包一个div来指定更复杂的样式 -->
+					<input type="text" class="input-style" v-model="LoginForm.username" >
+					<div class="input-label" style="margin-top: 32px;">
+						密码:<div class="caution" v-show="passwordCaution">密码不能为空！</div>
+					</div>
+					<div id="login-input-password">
+						<input :type="PwInputType" class="input-style input-password" v-model="LoginForm.password" >
+						<!-- 下面的img就是小眼睛，当点击的时候变换它的src和上面input标签的type -->
+						<label class="static" :class="{'showPw' : isActive}" @click="showPassword">显示密码</label>
+					</div>
+					
+				</div>
+				<!-- on-click属性的作用：当鼠标点击这个div的时候执行一个函数即function，此处没有是为了鼠标指针能变成手指 -->
+				<div id="login-confirm-button" style="margin-top: 30px;" @click="LogIn">
+					登录
+				</div>
+				<div id="login-info-keep">
+					<input type="checkbox" id="info-keep" style="margin-top: 15px;" @change="keep" v-model="keepStatus">
+					<label for="info-keep" >记住用户名和密码</label>
+				</div>
+			</div>
+		</div>
+		<script>
+			userLoginApp.mount('#right-content').init()
+		</script>
+	</body>
+</html>

@@ -7,7 +7,7 @@ const userLogoutApp = Vue.createApp({
                     console.log(res);
                 });
             window.sessionStorage.clear();
-            // window.location.replace("/backend/login.html");
+            window.location.replace("Login.html");
             // this.info = '调试信息：尚未登陆！';
         }
     }

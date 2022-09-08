@@ -1,0 +1,96 @@
+#login-main{
+	/* 登录页的主要部分，负责让登陆页面整体居中 */
+	width: 1000px;
+	height: 500px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	-webkit-transform: translateX(-50%) translateY(-50%);
+	-ms-transform: translateX(-50%);
+}
+#left-content{
+	/* 主要部分的左部，包含了一个img */
+	width: 419px;
+	height: 100%;
+	background: #4164e4;
+}
+#login-img{
+	/* 左部的img */
+	margin-top: 100px;
+	width: 100%; 
+}
+#right-content{
+	/* 主要部分的右部，包含了交互的部分 */
+    float: right;
+	width:50%;
+	margin-top: -450px;
+    background: white;
+}
+#login-title{
+	/* 右部的包含“登录”两个大字的div */
+	font-size: 28px;
+	font-weight: 700;
+	margin-bottom: 20px;
+}
+#login-input{
+	/* 右部的包含主要交互部分的div,简称输入部 */
+	
+}
+.input-label{
+	/* 输入部中包含“用户名”和“密码”的div，特别注意，因为前面两个文本都用这个样式，所以它使用class指示器 */
+
+}
+.input-style{
+	webkit-appearance: none; 
+    background-color: #fff;
+	border-radius: 4px; 
+	border: 1px solid #dcdfe6;
+	box-sizing: border-box;
+	color: #606266;
+	display: inline-block;
+	font-size: inherit;
+	width: 380px;
+	height: 40px;
+	line-height: 40px;
+	outline: 0;
+	padding: 0 15px;
+	transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+	margin-top: 15px;
+	border: none!important;
+}
+.input-password{
+	width: 280px;
+}
+#login-input-password{
+	/* 输入部中包含密码输入框和控制密码显示的img的div*/
+	
+}
+#login-confirm-button{
+	/* 右部中起到按钮作用的div，需要给其做成按钮的样式，而且这个div中包含了一个文本 */
+	width: 380px;
+	height: 48px;
+	background: #4164e4;
+	border-radius: 4px 4px 4px 4px;
+	opacity: 1;
+	cursor: pointer;
+	text-align: center;
+	align-items: center;
+	color: #fff;
+	line-height: 48px;
+}
+#login-info-keep{
+	/* 右部中包含“保存用户名和密码”的交互部分的div */
+	color: #999;
+	font-size: 14px;
+}
+.caution{
+	display: inline;
+	color: red;
+}
+.static{
+	color: #999999;
+}
+.showPw{
+	color: #4164e4;
+}

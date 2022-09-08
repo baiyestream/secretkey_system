@@ -8,6 +8,7 @@
 		<script src="js/user_logout.js"></script>
 		<script src="js/user_search.js"></script>
 		<script src="js/applyname.js"></script>
+		<script src="js/platform.js"></script>
 		<link rel="stylesheet" href="css/test.css">
 		<title>Title</title>
 	</head>
@@ -98,7 +99,6 @@
 				<div id="test-applyname" style="display: inline;">
 					应用名
 					<select @click="applynameSearch">
-">
 						<template v-for="item in applynameList">
 							<option>
 								{{item.applyname}}
@@ -108,8 +108,7 @@
 				</div>
 				<div id="test-platform" style="display: inline;">
 					应用名
-					<select @click="platformSearch">
-">
+					<select @click="platformSearch()" v-model="">
 						<template v-for="item in platformList">
 							<option>
 								{{item.appplatform}}
@@ -124,6 +123,7 @@
 			userLogoutApp.mount('#test-log-out')
 			userSearchApp.mount('#test-userSearch')
 			applynameApp.mount('#test-applyname')
+			platformApp.mount('#test-platform')
 		</script>
 	</body>
 </html>

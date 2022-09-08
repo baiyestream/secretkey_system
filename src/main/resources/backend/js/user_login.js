@@ -2,12 +2,39 @@ const userLoginApp = Vue.createApp({
     data(){
         return{
             LoginForm:{
-                username:"root",
-                password:null
+                username:'testname',
+                password:'testpassword'
             },
-            info: '调试信息：尚未登陆！'
+            info: '调试信息：尚未登陆！',
+            keepStatus :false,
+            isActive : false,
+            PwInputType: 'password'
         }
     },
+	computed:{
+		usernameCaution:{
+			set:function(){
+				return false;
+			},
+			get:function(){
+				if(this.LoginForm.username != ''){
+					return false;
+				}
+				return true;
+			}
+		},
+		passwordCaution:{
+			set:function(){
+				return false;
+			},
+			get:function(){
+				if(this.LoginForm.password != ''){
+					return false;
+				}
+				return true;
+			}
+		}
+	},
     methods:{
         LogIn(){
             let that = this;
@@ -26,10 +53,11 @@ const userLoginApp = Vue.createApp({
                         window.sessionStorage.setItem("accountid",res.data.data.accountid);
                         window.sessionStorage.setItem("status",res.data.data.status);
                         console.log("jurisdiction: " + window.sessionStorage.getItem("jurisdiction"));
-                        window.alert("调试信息：登陆成功！点击跳转到主页");
-                        // window.location.replace("/backend/mainpage.html");
+                        // window.alert("调试信息：登陆成功！点击跳转到主页");
+                        window.location.replace("MainPage.html");
                         // window.location.replace("/backend/main_test.html");
 						that.info = '调试信息：登陆成功！点击跳转到主页';
+                        console.log(that.info);
                     }else{
                         console.log("login failed,code:" + res.data.code);
                         that.info = '调试信息：登陆失败！'
@@ -38,6 +66,52 @@ const userLoginApp = Vue.createApp({
 
                     }
                 })
+        },
+        keep(){
+            if(this.keepStatus == true){
+                window.localStorage.setItem("username",this.LoginForm.username);
+                window.localStorage.setItem("password",this.LoginForm.password);
+                window.localStorage.setItem("keepStatus","true");
+            }else{
+                window.localStorage.setItem("username","");
+                window.localStorage.setItem("password","");
+                window.localStorage.setItem("keepStatus","false");
+            }
+        },
+        init(){
+            if(window.localStorage.getItem("keepStatus") == "true"){
+                console.log("status is true")
+                this.LoginForm.username = window.localStorage.getItem("username");
+                this.LoginForm.password = window.localStorage.getItem("password");
+                this.keepStatus = true;
+            }else{
+                window.localStorage.setItem("username","");
+                window.localStorage.setItem("password","");
+                window.localStorage.setItem("keepStatus","false");
+            }
+        },
+   //      userInput(){
+			// if(this.LoginForm.username != ''){
+			// 	this.usernameCaution = false;
+			// }else{
+			// 	this.usernameCaution = true;
+			// }
+   //          console.log(this.usernameCaution);
+			// if(this.LoginForm.password != ''){
+			// 	this.passwordCaution = false;
+			// }else{
+			// 	this.passwordCaution = true;
+			// }
+   //          console.log(this.passwordCaution);
+   //      }
+        showPassword(){
+            if(this.isActive == true){
+                this.isActive = false;
+                this.PwInputType = 'password';
+            }else{
+                this.isActive = true;
+                this.PwInputType = 'text';
+            }
         }
     }
 })
