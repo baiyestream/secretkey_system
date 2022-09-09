@@ -1,0 +1,14 @@
+#content-main{
+	position: absolute;
+	left: 40%;
+	top: 20%;
+}
+#file-upload{
+	width: 600px;
+	height: 240px;
+	border-radius: 10px;
+	border: 1px dashed #999999;
+	text-align: center;
+	line-height: 240px;
+	margin-top: 10px;
+}

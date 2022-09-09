@@ -4,10 +4,21 @@
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/shared.css">
 		<script src="js/vue.global.prod.js"></script>
-		<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+		<script src="js/axios.min.js"></script>
 		<script src="js/user_logout.js"></script>
 		<script src="js/navigation.js"></script>
 		<title></title>
+		<style>
+			#file-list{
+				width: 80vw;
+				height: 70vh;
+			}
+			.table-cell{
+				width: 150px;
+				height: 30px;
+				text-align: center;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="nav-frame">
@@ -43,7 +54,7 @@
 			</div>
 			<div class="nav-item" @click="jump('UserInfo')">
 				<img src="img/5.png" alt class="nav-img" >
-				用户信息
+				个人信息
 			</div>
 		</div>
 		<div id="content-frame">
@@ -53,18 +64,76 @@
 				</div>
 			</div>
 			<div id="content-title-bar">
-				<h3>文件管理-操作</h3>
+					<h3 >应用管理-操作</h3>
 			</div>
-			<div id="content"></div>
+			<div id="content">
+				<div id="file-list">
+					<table >
+						<tr>
+							<th>
+								<div class="table-cell">
+									应用名
+								</div>
+							</th>
+							<th>
+								<div class="table-cell">
+									操作	
+								</div>
+							</th>
+						</tr>
+						<tr v-for="num in 5">
+							<td>
+								<div class="table-cell">
+									<input type="checkbox" v-show="multiSelection">
+									{{num}}
+								</div>
+							</td>
+							<td>
+								<div class="table-cell">
+									<a href="">下载</a>&nbsp&nbsp
+									<a href="">删除</a>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+				<div id="file-option" style="display: flex">
+					<div class="option-button" style="margin-left: 10px;" @click="back">返回上一级</div>
+					<div class="option-button" style="margin-left: 10px;" @click="multiSelectOn">多选应用</div>
+					<div class="option-button" style="margin-left: 10px;" v-show="multiSelection">全部下载</div>
+					<div class="option-button" style="margin-left: 10px;" v-show="multiSelection">全部删除</div>
+<!--					<div class="option-button" style="margin-left: 10px;" v-show="multiSelection" onclick="window.location.href = 'FileManage.html'">清空所选</div>-->
+				</div>
+			</div>
 		</div>
 		<script>
 			if(window.sessionStorage.getItem("status") != 1){
 				document.write("");
-				window.alert("您的账号未激活！请联系管理员处理")
-				window.location.replace("Login.html")
+				window.alert("您的账号未激活！请联系管理员处理");
+				window.location.replace("Login.html");
+				window.sessionStorage.clear();
 			}
 			navApp.mount('#nav-frame').init()
 			userLogoutApp.mount('#content-top-bar')
+			const fileListApp = Vue.createApp({
+				data(){
+					return{
+						multiSelection: false
+					}
+				},
+				methods:{
+					multiSelectOn(){
+						if(this.multiSelection == false){
+							this.multiSelection = true;
+						}else{
+							window.location.href = 'FileManage.html';
+						}
+					},
+					back(){
+						window.location.href = 'FileManageIndex.html';
+					}
+				}
+			}).mount('#content')
 		</script>
 	</body>
 </html>

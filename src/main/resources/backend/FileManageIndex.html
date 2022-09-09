@@ -3,8 +3,9 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" href="css/shared.css">
+		<link rel="stylesheet" href="css/FileManageIndex.css">
 		<script src="js/vue.global.prod.js"></script>
-		<script src="https://cdn.staticfile.org/axios/0.18.0/axios.min.js"></script>
+		<script src="js/axios.min.js"></script>
 		<script src="js/user_logout.js"></script>
 		<script src="js/navigation.js"></script>
 		<title></title>
@@ -43,7 +44,7 @@
 			</div>
 			<div class="nav-item" @click="jump('UserInfo')">
 				<img src="img/5.png" alt class="nav-img" >
-				用户信息
+				个人信息
 			</div>
 		</div>
 		<div id="content-frame">
@@ -53,15 +54,33 @@
 				</div>
 			</div>
 			<div id="content-title-bar">
-				<h3>文件管理</h3>
+				<h3>应用管理</h3>
 			</div>
-			<div id="content"></div>
+			<div id="content">
+				<div id="content-main">
+					<img
+							src="img/21.png"
+							alt
+							style="margin-left: 35px;cursor: pointer;"
+							onclick="window.location.href = 'FileManage.html'"
+					/>
+					<img
+							src="img/19.png"
+							alt
+							style="margin-left: 10vw;cursor: pointer;"
+					/>
+					<div id="file-upload" style="cursor: pointer;">
+						<span>点击或者拖拽文件进行上传</span>
+					</div>
+				</div>
+			</div>
 		</div>
 		<script>
 			if(window.sessionStorage.getItem("status") != 1){
 				document.write("");
-				window.alert("您的账号未激活！请联系管理员处理")
-				window.location.replace("Login.html")
+				window.alert("您的账号未激活！请联系管理员处理");
+				window.location.replace("Login.html");
+				window.sessionStorage.clear();
 			}
 			navApp.mount('#nav-frame').init()
 			userLogoutApp.mount('#content-top-bar')

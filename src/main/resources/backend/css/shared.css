@@ -4,11 +4,12 @@ body{
 	/* 页面的主体部分 */
 	/* 部分浏览器的body会自带8px的margin，这里归零 */
 	margin: 0px;
+	display: flex;
 }
 #nav-frame{
 	/* 左侧导航栏的整体外框 */
-	float: left;
-	width: 220px;
+	/*float: left;*/
+	width: 12vw;
 	height: 100vh;
 	min-height: 925px;
 	background-color: #333943;
@@ -46,20 +47,22 @@ body{
 }
 #content-frame{
 	/* 右侧页面内容的整体外框 */
-	float: left;
-	width: 85vw;
+	/*float: left;*/
+	width: 88vw;
 	height: 100vh;
 }
 #content-top-bar{
 	/* 右侧内容顶部的包含退出登录按钮的div */
-	float: left;
+	/*float: left;*/
 	width: 100%;
-	display: block;
 	padding-top: 20px;
+	display: flex;
+	align-items: center;
 	
 }
 #content-title-bar{
 	/* 右侧内容第二高的部分的包含当前页面标题的div */
+	padding-left: 50px;
 }
 #content{
 	/* 主要内容 */
@@ -76,6 +79,5 @@ body{
 	cursor: pointer;
 }
 #option-logout{
-	margin-right: 12px;
-	float: right;
+	margin-left: 80vw;
 }

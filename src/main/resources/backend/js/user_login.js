@@ -42,6 +42,7 @@ const userLoginApp = Vue.createApp({
                 .post('/user/login',that.LoginForm)//post请求
                 .then(function (res){//然后获取response就是res
                     if(res.data.code === 1){//如果code是1就是登陆成功
+                        that.keep();
                         console.log(res);
                         console.log("login accepted,code: " + res.data.code);
                         console.log("userid: " + res.data.data.accountid);
