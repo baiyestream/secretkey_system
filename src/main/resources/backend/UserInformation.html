@@ -56,7 +56,17 @@
 				<h3>个人信息</h3>
 			</div>
 			<div id="content">
-
+				<span style="font-size: 24px">
+					用户名：{{username}}
+				</span>
+				<br/>
+				<span style="font-size: 24px">
+					昵称：{{nickname}}
+				</span>
+				<br/>
+				<span style="font-size: 24px">
+					权限：{{jurisdiction}}
+				</span>
 			</div>
 		</div>
 		<script>
@@ -68,6 +78,30 @@
 			}
 			navApp.mount('#nav-frame').init()
 			userLogoutApp.mount('#content-top-bar')
+			const userInfoApp = Vue.createApp({
+				computed:{
+					view:function () {
+						if(window.sessionStorage.getItem("jurisdiction") == 1){
+							return true;
+						}else{
+							return false;
+						}
+					},
+					username:function () {
+						return window.sessionStorage.getItem("username");
+					},
+					nickname:function () {
+						return window.sessionStorage.getItem("nickname");
+					},
+					jurisdiction:function () {
+						if(window.sessionStorage.getItem("jurisdiction") == 1){
+							return '管理员';
+						}else{
+							return '用户';
+						}
+					}
+				}
+			}).mount('#content')
 		</script>
 	</body>
 </html>

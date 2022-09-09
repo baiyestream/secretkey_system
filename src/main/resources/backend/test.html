@@ -7,9 +7,12 @@
 		<script src="js/user_login.js"></script>
 		<script src="js/user_logout.js"></script>
 		<script src="js/user_search.js"></script>
-		<script src="js/applyname.js"></script>
-		<script src="js/platform.js"></script>
+		<script src="js/file_upload.js"></script>
 		<link rel="stylesheet" href="css/test.css">
+		<!-- 引入样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<!-- 引入组件库 -->
+		<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 		<title>Title</title>
 	</head>
 	<body>
@@ -118,12 +121,22 @@
 				</div>
 			</div>
 		</div>
+		<div class="test-unit">
+			<div id="test-upload">
+				<input
+				ref="file"
+				type="file" 
+				accept=".jpg" 
+				multiple="multiple"
+				@change="upload(e)"
+				/>
+			</div>
+		</div>
 		<script>
 			userLoginApp.mount('#test-log')
 			userLogoutApp.mount('#test-log-out')
 			userSearchApp.mount('#test-userSearch')
-			applynameApp.mount('#test-applyname')
-			platformApp.mount('#test-platform')
+			fileUploadApp.mount('#test-upload')
 		</script>
 	</body>
 </html>
