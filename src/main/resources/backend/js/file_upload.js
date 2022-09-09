@@ -8,13 +8,12 @@ const fileUploadApp = Vue.createApp({
 		upload(e){
 			let that = this;
 			let event = window.event || e;
-			console.log(that.$refs.file.value);
-			console.log(that.$refs.file);
+			let formData = new FormData();
+			formData.append('file', event.target.files[0]);
 			console.log(event.target.files[0]);
-			that.file = event.target.files[0];
-			console.log(that.file);
+			console.log(formData);
 			axios
-			    .post('/common/upload',that.file)
+			    .post('/common/upload',formData)
                 .then(function(res){
                     console.log(res);
                 })

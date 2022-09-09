@@ -6,6 +6,12 @@ spring:
     url: jdbc:mysql://localhost:3306/secretkey_system?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
     username: root
     password: 987654321wj
+  servlet:
+    multipart:
+      #       设置单个文件大小
+      max-file-size: 10MB
+      #       设置单次请求文件的总大小
+      max-request-size: 50MB
 tangcai:
     path: D:\唐彩秘钥\应用文件图片\
 
