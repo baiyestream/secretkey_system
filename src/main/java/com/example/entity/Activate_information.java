@@ -11,7 +11,6 @@ public class Activate_information {
 
     private static final long serialVersionUID = 1L;
 
-    //  主键ID,前端展示把ID隐藏
     private Long id;
     //  客户名称
     private String nickname;

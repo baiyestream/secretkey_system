@@ -10,6 +10,7 @@ import com.example.entity.Platform;
 import com.example.service.Activate_informationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,6 +20,11 @@ public class KeyController {
 
     @Autowired
     private Activate_informationService activate_informationService;
+
+    @PostMapping("/import")
+    public R<String> Import(){
+        return null;
+    }
 
 
 
@@ -57,5 +63,6 @@ public class KeyController {
 
         return R.success(pageInfo);
     }
+
 
 }

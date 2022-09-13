@@ -19,7 +19,7 @@ public class ApplynameController {
     private ApplynameService applynameService;
 
     /**
-     * 激活信息-选择信息接口
+     * 激活信息-选择应用接口
      * @param applyname
      * @return
      */

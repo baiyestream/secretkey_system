@@ -76,7 +76,6 @@ public class UserController {
 
     /**
      * 激活信息列表—用户名称
-     * @param user
      * @return
      */
     @GetMapping("/list")
@@ -85,7 +84,6 @@ public class UserController {
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper();
         List<User> list = userService.list(queryWrapper);
         return R.success(list);
-
     }
 
     /**
@@ -116,6 +114,26 @@ public class UserController {
         userService.save(user);
         return R.success("新增用户成功");
     }
+    /**
+     * 删除用户
+     */
+    @DeleteMapping("/delete/{accountid}")
+    public R<String> delete(@PathVariable("accountid") int accountid){
+        LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(User::getAccountid,accountid);
+        userService.remove(queryWrapper);
+        return R.success("删除成功");
+    }
+    /**
+     * 修改用户
+     */
+    @PutMapping("/update")
+    public R<String> update(@RequestBody User user){
+        userService.updateById(user);
+        return R.success("修改用户成功");
+    }
+
+
 
 
 
